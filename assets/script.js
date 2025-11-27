@@ -188,3 +188,40 @@ window.addEventListener("load", () => {
         }, 600);
     }, 800); 
 });
+
+
+const lightbox = document.createElement('div');
+lightbox.id = 'lightbox';
+document.body.appendChild(lightbox);
+
+document.querySelectorAll('.gallery img').forEach(img => {
+    img.addEventListener('click', () => {
+        lightbox.innerHTML = `<img src="${img.src}" alt="Gallery Image">`;
+        lightbox.classList.add('show');
+    });
+});
+
+lightbox.addEventListener('click', () => {
+    lightbox.classList.remove('show');
+});
+
+
+// Arrival countdown
+const arrivalDate = new Date();
+arrivalDate.setDate(arrivalDate.getDate() + 29); // 29 days from now
+
+function updateArrival() {
+    const now = new Date();
+    const diff = arrivalDate - now;
+
+    const days = Math.floor(diff / (1000*60*60*24));
+    const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((diff % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((diff % (1000*60)) / 1000);
+
+    document.getElementById('arrivalCountdown').textContent =
+        `Only ${days} days, ${hours}h ${minutes}m ${seconds}s until he comes back! 💕`;
+}
+
+updateArrival();
+setInterval(updateArrival, 1000);
