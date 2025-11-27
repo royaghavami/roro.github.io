@@ -27,6 +27,16 @@ body.dark footer {
     color: #ff8fa4;
 }
 
+body.dark #daysTogether {
+    background: #474747;
+    color: #ffd7e0;
+}
+
+body.dark .song-list > li {
+    background: #474747;
+    color: #ffd7e0;
+}
+
 /* Dark mode toggle */
 #darkToggle {
     position: fixed;

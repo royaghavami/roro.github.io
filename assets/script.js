@@ -49,7 +49,7 @@ document.getElementById("confettiButton").onclick = () => {
 // ----------------------------
 const songs = [
   { title: "Everything EveryWhere - Vaultboy", file: "./assets/songs/everything-everywhere.mp3" },
-  { title: "Second Favorite", file: "./assets/songs/song2.mp3" },
+  { title: "Blind - Alex Sampson", file: "./assets/songs/blind.mp3" },
 ];
 
 let currentAudio = null;
