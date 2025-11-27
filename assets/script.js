@@ -1,8 +1,6 @@
 // ----------------------------
 // DAYS TOGETHER CALCULATION
 // ----------------------------
-
-// Set to your real first date
 const startDate = new Date("2025-09-14");
 
 function updateDaysTogether() {
@@ -15,94 +13,130 @@ function updateDaysTogether() {
 }
 updateDaysTogether();
 
+const heartContainer = document.querySelector(".days-section .hearts-container");
+
+
+// ----------------------------
+// DARK MODE TOGGLE
+// ----------------------------
+document.getElementById("darkToggle").onclick = () => {
+  document.body.classList.toggle("dark");
+};
+
+
+// ----------------------------
+// CONFETTI
+// ----------------------------
+document.getElementById("confettiButton").onclick = () => {
+  for (let i = 0; i < 80; i++) {
+    const conf = document.createElement("div");
+    conf.textContent = "💖";
+    conf.classList.add("heart");
+
+    conf.style.left = Math.random() * 100 + "%";
+    conf.style.top = "100vh";
+    conf.style.fontSize = Math.random() * 30 + 20 + "px";
+
+    document.body.appendChild(conf);
+
+    setTimeout(() => conf.remove(), 3000);
+  }
+};
+
 
 // ----------------------------
 // SONG LIST
 // ----------------------------
-// Songs list automatically from folder
 const songs = [
   { title: "Everything EveryWhere - Vaultboy", file: "./assets/songs/everything-everywhere.mp3" },
-  { title: "Second Favorite", file: "assets/songs/song2.mp3" },
+  { title: "Second Favorite", file: "./assets/songs/song2.mp3" },
 ];
+
+let currentAudio = null;
+let currentIcon = null;
 
 function renderSongs() {
   const ul = document.getElementById("songList");
 
-  songs.forEach((song, index) => {
+  songs.forEach((song) => {
     const li = document.createElement("li");
 
-    // play button
-    const btn = document.createElement("div");
-    btn.classList.add("song-play-button");
-    btn.innerHTML = "❤";
+    const title = document.createElement("span");
+    title.textContent = song.title;
+
+    const icon = document.createElement("span");
+    icon.classList.add("song-icon");
+    icon.textContent = "▶"; // play icon
 
     const audio = new Audio(song.file);
 
-    btn.onclick = () => {
+    icon.onclick = () => {
+      // Stop previous song
+      if (currentAudio && currentAudio !== audio) {
+        currentAudio.pause();
+        currentIcon.classList.remove("playing");
+        currentIcon.textContent = "▶";
+      }
+
       if (audio.paused) {
         audio.play();
-        btn.classList.add("playing");
+        icon.classList.add("playing");
+        icon.textContent = "⏸";
+        currentAudio = audio;
+        currentIcon = icon;
       } else {
         audio.pause();
-        btn.classList.remove("playing");
+        icon.classList.remove("playing");
+        icon.textContent = "▶";
       }
     };
 
-    li.appendChild(btn);
-
-    const text = document.createElement("span");
-    text.textContent = song.title;
-    li.appendChild(text);
-
+    li.appendChild(title);
+    li.appendChild(icon);
     ul.appendChild(li);
   });
 }
 renderSongs();
 
 
-const heartMessages = [
-  "I love you ❤️",
-  "You make my world brighter ✨",
-  "You are my favorite person 💕",
-  "Every moment with you feels special 🌸",
-  "I’m so happy I met you 💗"
-];
-
-document.addEventListener("click", function (e) {
-  if (e.target.classList.contains("heart")) {
-    const msg = document.createElement("div");
-    msg.classList.add("heart-message");
-    msg.textContent = heartMessages[Math.floor(Math.random() * heartMessages.length)];
-
-    msg.style.left = e.pageX + "px";
-    msg.style.top = e.pageY + "px";
-
-    document.body.appendChild(msg);
-
-    setTimeout(() => msg.remove(), 2000);
-  }
-});
-
-
 // ----------------------------
 // FLOATING HEARTS
 // ----------------------------
-const container = document.querySelector("#daysSection .hearts-container");
+const container = document.querySelector(".hearts-container");
 
 function createHeart() {
-  const heart = document.createElement("div");
-  heart.classList.add("heart");
-  heart.textContent = "❤";
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.textContent = "❤";
 
-  const size = Math.random() * 20 + 10;
-  heart.style.fontSize = `${size}px`;
+    const size = Math.random() * 20 + 15;
+    heart.style.fontSize = `${size}px`;
+    heart.style.left = Math.random() * 100 + "%";
+    heart.style.animationDuration = 3 + Math.random() * 3 + "s";
 
-  heart.style.left = Math.random() * 100 + "%";
-  heart.style.animationDuration = 10 + Math.random() * 3 + "s";
+    heart.style.cursor = "pointer";
+    heart.onclick = () => {
+        heart.style.transform = "scale(2)";
+        heart.style.transition = "0.2s";
+        setTimeout(() => heart.remove(), 150);
+    };
 
-  container.appendChild(heart);
+    heartContainer.appendChild(heart);
 
-  setTimeout(() => heart.remove(), 6000);
+    setTimeout(() => heart.remove(), 6000);
 }
 
+
 setInterval(createHeart, 600);
+
+
+
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.getElementById("loadingScreen").style.opacity = "0";
+        document.getElementById("loadingScreen").style.transition = "0.6s";
+        setTimeout(() => {
+            document.getElementById("loadingScreen").remove();
+        }, 600);
+    }, 800); 
+});
