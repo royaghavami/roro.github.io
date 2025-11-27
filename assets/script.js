@@ -48,55 +48,103 @@ document.getElementById("confettiButton").onclick = () => {
 // SONG LIST
 // ----------------------------
 const songs = [
-  { title: "Everything EveryWhere - Vaultboy", file: "./assets/songs/everything-everywhere.mp3" },
-  { title: "Blind - Alex Sampson", file: "./assets/songs/blind.mp3" },
+  { 
+    title: "Everything EveryWhere - Vaultboy", 
+    file: "./assets/songs/everything-everywhere.mp3",
+    cover: "./assets/images/audio1.jpeg"
+  },
+  { 
+    title: "Blind - Alex Sampson", 
+    file: "./assets/songs/blind.mp3",
+    cover: "./assets/images/audio2.jpeg"
+  },
 ];
 
 let currentAudio = null;
-let currentIcon = null;
+let currentCard = null;
 
 function renderSongs() {
-  const ul = document.getElementById("songList");
+    const container = document.getElementById("songList");
+    songs.forEach(song => {
+        const card = document.createElement("div");
+        card.classList.add("song-card");
 
-  songs.forEach((song) => {
-    const li = document.createElement("li");
+        const img = document.createElement("img");
+        img.classList.add("song-cover");
+        img.src = song.cover;
+        card.appendChild(img);
 
-    const title = document.createElement("span");
-    title.textContent = song.title;
+        const title = document.createElement("div");
+        title.classList.add("song-title");
+        title.textContent = song.title;
+        card.appendChild(title);
 
-    const icon = document.createElement("span");
-    icon.classList.add("song-icon");
-    icon.textContent = "▶"; // play icon
+        const controls = document.createElement("div");
+        controls.classList.add("song-controls");
 
-    const audio = new Audio(song.file);
-
-    icon.onclick = () => {
-      // Stop previous song
-      if (currentAudio && currentAudio !== audio) {
-        currentAudio.pause();
-        currentIcon.classList.remove("playing");
-        currentIcon.textContent = "▶";
-      }
-
-      if (audio.paused) {
-        audio.play();
-        icon.classList.add("playing");
-        icon.textContent = "⏸";
-        currentAudio = audio;
-        currentIcon = icon;
-      } else {
-        audio.pause();
-        icon.classList.remove("playing");
+        const icon = document.createElement("span");
+        icon.classList.add("song-icon");
         icon.textContent = "▶";
-      }
-    };
 
-    li.appendChild(title);
-    li.appendChild(icon);
-    ul.appendChild(li);
-  });
+        const time = document.createElement("span");
+        time.classList.add("song-time");
+        time.textContent = "0:00";
+
+        controls.appendChild(icon);
+        controls.appendChild(time);
+        card.appendChild(controls);
+
+        const audio = new Audio(song.file);
+        const progress = document.createElement("input");
+        progress.type = "range";
+        progress.min = 0;
+        progress.value = 0;
+        progress.max = 0;
+        progress.classList.add("song-progress");
+        card.appendChild(progress);
+
+        // Update time & progress
+        audio.addEventListener("loadedmetadata", () => {
+            progress.max = Math.floor(audio.duration);
+        });
+
+        audio.addEventListener("timeupdate", () => {
+            progress.value = Math.floor(audio.currentTime);
+            const mins = Math.floor(audio.currentTime / 60);
+            const secs = Math.floor(audio.currentTime % 60).toString().padStart(2,"0");
+            time.textContent = `${mins}:${secs}`;
+        });
+
+        progress.addEventListener("input", () => {
+            audio.currentTime = progress.value;
+        });
+
+        icon.onclick = () => {
+            if(currentAudio && currentAudio !== audio){
+                currentAudio.pause();
+                currentCard.querySelector(".song-icon").classList.remove("playing");
+                currentCard.querySelector(".song-icon").textContent = "▶";
+            }
+
+            if(audio.paused){
+                audio.play();
+                icon.classList.add("playing");
+                icon.textContent = "⏸";
+                currentAudio = audio;
+                currentCard = card;
+            } else {
+                audio.pause();
+                icon.classList.remove("playing");
+                icon.textContent = "▶";
+            }
+        };
+
+        container.appendChild(card);
+    });
 }
+
 renderSongs();
+
 
 
 // ----------------------------
