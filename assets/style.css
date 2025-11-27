@@ -471,3 +471,52 @@ body.dark .arrival-section {
     background: #474747;
     color: #ffd7e0;
 }
+
+
+/* Floating hearts container */
+#floatingHeartsContainer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+/* Floating heart */
+.floating-heart {
+    position: absolute;
+    font-size: 20px;
+    color: #ff4d6d;
+    cursor: pointer;
+    user-select: none;
+    animation: floatUp 5s linear infinite;
+    opacity: 0.8;
+    pointer-events: auto;
+    /* allow clicks */
+}
+
+/* Heart click message */
+.heart-msg {
+    position: absolute;
+    background: #fff0f4;
+    border: 2px solid #ff6b81;
+    padding: 8px 12px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    color: #d83d5a;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: 0.3s;
+}
+
+/* Red string canvas */
+#redStringCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    /* behind everything */
+}

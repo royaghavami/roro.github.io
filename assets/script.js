@@ -225,3 +225,108 @@ function updateArrival() {
 
 updateArrival();
 setInterval(updateArrival, 1000);
+
+
+
+// ------------------------
+// Floating Hearts with Messages
+// ------------------------
+const heartMessages = [
+  "I love you ❤️",
+  "You make my world brighter ✨",
+  "You are my favorite person 💕",
+  "Every moment with you feels special 🌸",
+  "I’m so happy I met you 💗"
+];
+
+const floatingContainer = document.getElementById("floatingHeartsContainer");
+
+function createFloatingHeart() {
+  const heart = document.createElement("div");
+  heart.classList.add("floating-heart");
+  heart.textContent = "❤";
+
+  // Random position
+  heart.style.left = Math.random() * 100 + "%";
+  heart.style.top = Math.random() * 100 + "%";
+  heart.style.fontSize = 15 + Math.random() * 25 + "px";
+
+  heart.onclick = (e) => {
+    const msg = document.createElement("div");
+    msg.classList.add("heart-msg");
+    msg.textContent = heartMessages[Math.floor(Math.random() * heartMessages.length)];
+    msg.style.left = e.pageX + "px";
+    msg.style.top = e.pageY + "px";
+
+    document.body.appendChild(msg);
+
+    requestAnimationFrame(() => {
+      msg.style.opacity = 1;
+      msg.style.transform = "translateY(-30px)";
+    });
+
+    setTimeout(() => {
+      msg.style.opacity = 0;
+      setTimeout(() => msg.remove(), 300);
+    }, 2000);
+  };
+
+  floatingContainer.appendChild(heart);
+
+  // Remove heart after some time
+  setTimeout(() => heart.remove(), 8000);
+}
+
+setInterval(createFloatingHeart, 800);
+
+// ------------------------
+// Multiple Red Strings Animation
+// ------------------------
+const canvas = document.getElementById("redStringCanvas");
+const ctx = canvas.getContext("2d");
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let time = 0;
+
+const strings = [
+    { color: "#ff1a3c", amplitude: 20, frequency: 0.01, speed: 0.02 },
+    { color: "#ff4d66", amplitude: 15, frequency: 0.015, speed: 0.025 },
+    { color: "#ff7f99", amplitude: 25, frequency: 0.008, speed: 0.018 }
+];
+
+function drawRedStrings() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    strings.forEach(str => {
+        ctx.beginPath();
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = str.color;
+
+        const startX = canvas.width;
+        const startY = 0;
+        const endX = 0;
+        const endY = canvas.height;
+
+        for (let x = 0; x <= canvas.width; x += 2) {
+            const progress = x / canvas.width;
+            const y = startY + (endY - startY) * progress
+                    + str.amplitude * Math.sin(str.frequency * x + time)
+                    + str.amplitude * 0.5 * Math.sin(str.frequency * x * 2 + time * 2);
+            const drawX = startX - x;
+            ctx.lineTo(drawX, y);
+        }
+
+        ctx.stroke();
+    });
+
+    time += 0.02;
+    requestAnimationFrame(drawRedStrings);
+}
+
+drawRedStrings();
+
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
