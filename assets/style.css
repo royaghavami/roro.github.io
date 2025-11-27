@@ -488,7 +488,7 @@ body.dark .arrival-section {
     color: #ff4d6d;
     cursor: pointer;
     user-select: none;
-    animation: floatUp 5s linear infinite;
+    animation: floatUp 20s linear infinite;
     opacity: 0.8;
     pointer-events: auto;
     /* allow clicks */
@@ -506,7 +506,7 @@ body.dark .arrival-section {
     pointer-events: none;
     opacity: 0;
     transform: translateY(-10px);
-    transition: 0.3s;
+    /* transition: 0.3s; */
 }
 
 /* Red string canvas */
