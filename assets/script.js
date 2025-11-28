@@ -207,12 +207,17 @@ lightbox.addEventListener('click', () => {
 
 
 // Arrival countdown
-const arrivalDate = new Date();
-arrivalDate.setDate(arrivalDate.getDate() + 29); // 29 days from now
+const arrivalDate = new Date(2025, 11, 27, 0, 0, 0);
 
 function updateArrival() {
     const now = new Date();
     const diff = arrivalDate - now;
+
+    if (diff <= 0) {
+        document.getElementById('arrivalCountdown').textContent =
+            "He's already hereeee!!! ❤️🥰";
+        return;
+    }
 
     const days = Math.floor(diff / (1000*60*60*24));
     const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
@@ -225,7 +230,6 @@ function updateArrival() {
 
 updateArrival();
 setInterval(updateArrival, 1000);
-
 
 
 // ------------------------
