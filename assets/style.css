@@ -139,6 +139,7 @@ h2 {
 header {
     position: relative;
     width: 100%;
+    top: 0;
     height: 95vh;
     max-height: 950px;
     overflow: hidden;
@@ -194,6 +195,154 @@ header img {
     100% {
         transform: translateY(-10px);
     }
+}
+
+.love-nav {
+    width: 100%;
+    background: rgba(255, 116, 143, 0.95);
+    backdrop-filter: blur(6px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 3px;
+    box-shadow: 0 4px 10px rgba(255, 80, 120, 0.18);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 23;
+}
+
+.nav-title {
+    font-weight: 700;
+    color: #fff;
+    font-size: 1.3rem;
+    letter-spacing: 0.4px
+}
+
+/* hamburger */
+.nav-toggle {
+    display: none;
+    cursor: pointer;
+    width: 40px;
+    height: 28px;
+    border: 0;
+    background: none;
+    /* padding: 0; */
+    padding-right: 6px;
+    margin-right: 16px;
+    position: relative;
+    z-index: 3200;
+}
+
+.nav-toggle .bar {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: #fff;
+    border-radius: 6px;
+    transition: all .35s ease;
+}
+
+.nav-toggle .bar:nth-child(1) {
+    top: 0
+}
+
+.nav-toggle .bar:nth-child(2) {
+    top: 12px
+}
+
+.nav-toggle .bar:nth-child(3) {
+    top: 24px
+}
+
+.nav-toggle.open .bar:nth-child(1) {
+    transform: rotate(45deg);
+    top: 12px
+}
+
+.nav-toggle.open .bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(.2)
+}
+
+.nav-toggle.open .bar:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 12px
+}
+
+/* links */
+.nav-links {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    /* padding: 0; */
+    padding-right: 6px;
+}
+
+.nav-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all .18s ease;
+}
+
+.nav-links li a:hover {
+    background: #fff;
+    color: var(--pink)
+}
+
+/* mobile */
+@media (max-width:768px) {
+    .nav-toggle {
+        display: block
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        right: 12px;
+        width: 200px;
+        background: rgba(255, 135, 160, 0.98);
+        flex-direction: column;
+        gap: 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: -6px 6px 18px rgba(0, 0, 0, 0.12);
+        transform-origin: top right;
+        transform: scaleY(0);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform .32s ease, opacity .32s ease;
+        z-index: 3100;
+    }
+
+    .nav-links.open {
+        transform: scaleY(1);
+        opacity: 1;
+        pointer-events: auto
+    }
+
+    .nav-links li a {
+        padding: 14px 16px;
+        font-size: 1.05rem
+    }
+}
+/* Space for pages so content doesn't hide behind navbar */
+body {
+    padding-top: 80px;
 }
 
 /* DAYS TOGETHER */
