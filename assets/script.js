@@ -278,7 +278,7 @@ function createFloatingHeart() {
   floatingContainer.appendChild(heart);
 
   // Remove heart after some time
-  setTimeout(() => heart.remove(), 8000);
+  setTimeout(() => heart.remove(), 10000);
 }
 
 setInterval(createFloatingHeart, 800);
