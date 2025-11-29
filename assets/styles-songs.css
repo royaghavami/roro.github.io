@@ -1,0 +1,262 @@
+/* ----------------------------------
+   TIMELINE LAYOUT
+---------------------------------- */
+.timeline {
+    position: relative;
+    margin: 40px auto;
+    padding: 20px 0;
+    width: 100%;
+    border-left: none !important;
+}
+
+/* Center Vertical Line */
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, #ffb6c7, #ff5e7d, #ffb6c7);
+    transform: translateX(-50%);
+    border-radius: 3px;
+}
+
+/* Base item styling */
+.timeline-item {
+    width: 50%;
+    position: relative;
+    padding: 20px 40px;
+    box-sizing: border-box;
+}
+
+/* Connector dots */
+.timeline-item::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 16px;
+    height: 16px;
+    background: #ff5e7d;
+    border: 3px solid white;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    box-shadow: 0 0 0 3px #ffb6c7;
+}
+
+.timeline-item.left::before {
+    right: -8px;
+}
+
+.timeline-item.right::before {
+    left: -8px;
+}
+
+/* ❤️ Beautiful Card Style */
+.timeline-content {
+    background: linear-gradient(135deg, #ffeef2, #ffd6df);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(255, 90, 120, 0.22);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    /* border-left: 4px solid #ff5e7d; */
+}
+
+.timeline-item.right .timeline-content {
+    /* border-left: none; */
+    /* border-right: 4px solid #ff5e7d; */
+}
+
+.timeline-content:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 28px rgba(255, 70, 110, 0.28);
+}
+
+/* Positioning */
+.timeline-item.left {
+    left: 0;
+    text-align: left;
+}
+
+.timeline-item.right {
+    left: 50%;
+    text-align: left;
+}
+
+/* Date style */
+.timeline-date {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #775;
+    opacity: 0.8;
+    font-weight: 500;
+}
+
+/* Nicer titles with icons */
+.timeline-content h4 {
+    margin-bottom: 8px;
+    color: #d83d5a;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.timeline-content p {
+    margin: 0;
+    color: #555;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+/* ----------------------------------
+   SONG CARDS STYLING
+---------------------------------- */
+.song-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.song-card {
+    background: linear-gradient(135deg, #fff5f7, #ffeef2);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 6px 20px rgba(255, 90, 120, 0.15);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: 1px solid #ffd6df;
+}
+
+.song-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(255, 70, 110, 0.2);
+}
+
+.song-cover {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    /* border: 2px solid #ffd6df; */
+}
+
+.song-title {
+    font-weight: 600;
+    color: #d83d5a;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.song-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.song-icon {
+    background: #ff5e7d;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.8rem;
+}
+
+.song-icon:hover {
+    background: #d83d5a;
+    transform: scale(1.1);
+}
+
+.song-icon.playing {
+    background: #d83d5a;
+}
+
+.song-time {
+    color: #775;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.song-progress {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: #ffd6df;
+    outline: none;
+    -webkit-appearance: none;
+}
+
+.song-progress::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ff5e7d;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.song-progress::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #ff5e7d;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 700px) {
+    .timeline::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        width: 100%;
+        padding-left: 60px;
+        padding-right: 20px;
+        margin-bottom: 24px;
+    }
+
+    .timeline-item.right {
+        left: 0;
+    }
+
+    .timeline-item::before {
+        left: 12px !important;
+        right: auto !important;
+    }
+
+    .timeline-item.right .timeline-content,
+    .timeline-item.left .timeline-content {
+        border-right: none;
+        /* border-left: 4px solid #ff5e7d; */
+    }
+
+    .song-cards {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+/* Section title styling */
+.section-title {
+    color: #d83d5a;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 600;
+}

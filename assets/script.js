@@ -207,7 +207,9 @@ lightbox.addEventListener('click', () => {
 
 
 // Arrival countdown
-const arrivalDate = new Date(2025, 11, 27, 0, 0, 0);
+// const arrivalDate = new Date(2025, 11, 27, 0, 0, 0);
+const arrivalDate = new Date(2026, 1, 3, 0, 0, 0);
+
 
 function updateArrival() {
     const now = new Date();

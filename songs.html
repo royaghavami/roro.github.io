@@ -5,34 +5,70 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Songs 🎵</title>
-    <link rel="stylesheet" href="assets/style.css" />
+
+    <link rel="stylesheet" href="assets/styles-songs.css" />
+    <link rel="stylesheet" href="assets/style.css" /> <!-- Your global styles -->
 </head>
 
 <body>
+
+    <!-- 🔥 NAVIGATION BAR (Shared Across Pages) -->
     <nav class="love-nav">
         <div class="nav-left">
-            <div class="nav-title">💖 R &amp; R</div>
+            <div class="nav-title">💖 R & R</div>
         </div>
-        <button class="nav-toggle" id="navToggle"><span class="bar"></span><span class="bar"></span><span
-                class="bar"></span></button>
+
+        <button class="nav-toggle" id="navToggle">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
-            <li><a href="songs.html">Songs</a></li>
+            <li><a class="active" href="songs.html">Songs</a></li>
             <li><a href="movies.html">Movies</a></li>
             <li><a href="books.html">Books</a></li>
         </ul>
     </nav>
 
-    <section style="max-width:900px;margin:84px auto 40px;">
-        <h2>Our Songs 🎵</h2>
-        <p>Those little songs that mean a lot to us.</p>
-        <ul class="cute-list" style="margin-top:20px">
-            <li>🎧 Everything EveryWhere - Vaultboy</li>
-            <li>🎧 Blind - Alex Sampson</li>
-        </ul>
-    </section>
+    <main style="max-width:900px;margin:84px auto 40px;">
 
-    <script src="assets/script.js"></script>
+        <!-- ❤️ INTRO -->
+        <h2 style="text-align:center;">Our Songs 🎶</h2>
+        <p style="text-align:center;margin-bottom:40px;">
+            Songs we shared, songs we loved, songs that became *ours*. ❤️
+        </p>
+
+        <!-- ❤️ TIMELINE SECTION -->
+        <div class="timeline" id="timeline">
+
+            <!-- Example Entry (Roozbeh → Left) -->
+            <div class="timeline-item left">
+                <div class="timeline-content">
+                    <h4>🎵 Roozbeh Sent</h4>
+                    <p>Everything EveryWhere – Vaultboy</p>
+                    <span class="timeline-date">2025-01-14</span>
+                </div>
+            </div>
+            <!-- Example Entry (Roya → Right) -->
+            <div class="timeline-item right">
+                <div class="timeline-content">
+                    <h4>🎵 Roya Sent</h4>
+                    <p>Blind – Alex Sampson</p>
+                    <span class="timeline-date">2025-02-02</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ❤️ SONG CARDS PLAYER -->
+        <h3 class="section-title" style="margin-top:50px;">Listen to Our Songs 🎧</h3>
+        <div class="song-cards" id="songList"></div>
+
+    </main>
+
+    <!-- Scripts -->
+    <script src="assets/script.js"></script> <!-- your shared script  -->
+    <script src="assets/script-songs.js"></script> <!-- songs page only -->
 </body>
 
 </html>
