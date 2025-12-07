@@ -1,3 +1,4 @@
+/* Aim Section and HUD unchanged */
 .aim-section {
     max-width: 900px;
     margin: 20px auto;
@@ -12,7 +13,6 @@ body.dark .aim-section {
     background: #252525;
 }
 
-/* HUD */
 .hud {
     display: flex;
     justify-content: space-around;
@@ -36,27 +36,88 @@ body.dark .hud {
     border-radius: 20px;
     background: #fff0f4;
     overflow: hidden;
+
+    /* Cursor changes to gun/arrow */
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="32" width="32"><text y="28" font-size="28">🔫</text></svg>') 16 16, auto;
+    /* optional: replace with arrow */
 }
 
-/* Target */
+/* Bird target */
 .target {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="32" width="32"><text y="28" font-size="28">🔫</text></svg>') 16 16, auto;
     position: absolute;
     width: 50px;
     height: 50px;
-    background: #ff6b81;
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(255, 100, 120, 0.4);
-    cursor: pointer;
+    font-size: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.5rem;
-    color: white;
-    transition: transform 0.2s;
+    transition: transform 0.2s, opacity 0.5s;
+    opacity: 0;
+    animation: fadeIn 0.4s forwards;
 }
 
 .target:hover {
-    transform: scale(1.2);
+    transform: scale(1.3);
+}
+
+/* Fade animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+}
+
+/* Back button */
+.back-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #ff6b81;
+    color: white;
+    text-decoration: none;
+    padding: 10px 22px;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 12px rgba(255, 100, 120, 0.25);
+    transition: 0.25s ease;
+    z-index: 999;
+}
+
+.back-button:hover {
+    background: #ff8da1;
+    transform: scale(1.08);
+}
+
+@media (max-width:600px) {
+    .aim-area {
+        height: 350px;
+    }
+
+    .target {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
 }
 
 /* Back button */
