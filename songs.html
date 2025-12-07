@@ -6,23 +6,17 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Songs 🎵</title>
 
-    <link rel="stylesheet" href="assets/styles-songs.css" />
-    <link rel="stylesheet" href="assets/style.css" /> <!-- Your global styles -->
+    <link rel="stylesheet" href="assets/style.css" /> <!-- Global styles -->
+    <link rel="stylesheet" href="assets/styles-songs.css" /> <!-- Songs-specific styles -->
 </head>
 
 <body>
 
-    <!-- 🔥 NAVIGATION BAR (Shared Across Pages) -->
     <nav class="love-nav">
         <div class="nav-left">
             <div class="nav-title">💖 R & R</div>
         </div>
-
-        <button class="nav-toggle" id="navToggle">
-            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-        </button>
-
-        <ul class="nav-links" id="navLinks">
+        <ul class="nav-links">
             <li><a href="index.html">Home</a></li>
             <li><a class="active" href="songs.html">Songs</a></li>
             <li><a href="movies.html">Movies</a></li>
@@ -31,44 +25,17 @@
     </nav>
 
     <main style="max-width:900px;margin:84px auto 40px;">
-
-        <!-- ❤️ INTRO -->
         <h2 style="text-align:center;">Our Songs 🎶</h2>
         <p style="text-align:center;margin-bottom:40px;">
             Songs we shared, songs we loved, songs that became *ours*. ❤️
         </p>
 
-        <!-- ❤️ TIMELINE SECTION -->
-        <div class="timeline" id="timeline">
-
-            <!-- Example Entry (Roozbeh → Left) -->
-            <div class="timeline-item left">
-                <div class="timeline-content">
-                    <h4>🎵 Roozbeh Sent</h4>
-                    <p>Everything EveryWhere – Vaultboy</p>
-                    <span class="timeline-date">2025-01-14</span>
-                </div>
-            </div>
-            <!-- Example Entry (Roya → Right) -->
-            <div class="timeline-item right">
-                <div class="timeline-content">
-                    <h4>🎵 Roya Sent</h4>
-                    <p>Blind – Alex Sampson</p>
-                    <span class="timeline-date">2025-02-02</span>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- ❤️ SONG CARDS PLAYER -->
-        <h3 class="section-title" style="margin-top:50px;">Listen to Our Songs 🎧</h3>
-        <div class="song-cards" id="songList"></div>
-
+        <!-- SONG LINE -->
+        <div class="song-line" id="songLine"></div>
     </main>
 
-    <!-- Scripts -->
-    <script src="assets/script.js"></script> <!-- your shared script  -->
-    <script src="assets/script-songs.js"></script> <!-- songs page only -->
+    <script src="assets/script.js"></script>
+    <script src="assets/script-songs.js"></script>
 </body>
 
 </html>

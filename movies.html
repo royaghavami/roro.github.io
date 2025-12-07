@@ -5,34 +5,61 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Movies 🎬</title>
+
     <link rel="stylesheet" href="assets/style.css" />
+    <link rel="stylesheet" href="assets/styles-movies.css" />
 </head>
 
 <body>
+
+    <!-- ✅ NAV -->
     <nav class="love-nav">
         <div class="nav-left">
-            <div class="nav-title">💖 R &amp; R</div>
+            <div class="nav-title">💖 R & R</div>
         </div>
-        <button class="nav-toggle" id="navToggle"><span class="bar"></span><span class="bar"></span><span
-                class="bar"></span></button>
+
+        <button class="nav-toggle" id="navToggle">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+
         <ul class="nav-links" id="navLinks">
             <li><a href="index.html">Home</a></li>
             <li><a href="songs.html">Songs</a></li>
-            <li><a href="movies.html">Movies</a></li>
+            <li><a class="active" href="movies.html">Movies</a></li>
             <li><a href="books.html">Books</a></li>
         </ul>
     </nav>
 
-    <section style="max-width:900px;margin:84px auto 40px;">
+    <!-- ✅ MOVIES SECTION -->
+    <main class="movies-wrapper">
         <h2>Our Movies 🎬</h2>
-        <p>Films we've watched together and loved.</p>
-        <ul class="cute-list" style="margin-top:20px">
-            <li>🍿 Movie 1</li>
-            <li>🍿 Movie 2</li>
-        </ul>
-    </section>
+        <p class="movies-sub">Films we've watched together and loved ❤️</p>
 
+        <div class="movie-grid" id="movieGrid"></div>
+    </main>
+
+    <!-- ✅ REVIEW MODAL -->
+    <div class="movie-modal" id="movieModal">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModal">✖</span>
+
+            <img id="modalImage" />
+            <h3 id="modalTitle"></h3>
+            <div id="modalMeta" class="modal-meta"></div>
+
+            <!-- ✅ SCROLLABLE REVIEW -->
+            <div class="modal-review-wrapper">
+                <p id="modalReview"></p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- ✅ SCRIPTS -->
     <script src="assets/script.js"></script>
+    <script src="assets/script-movies.js"></script>
+
 </body>
 
 </html>
