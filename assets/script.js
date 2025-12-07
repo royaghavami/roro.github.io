@@ -182,7 +182,7 @@ setInterval(createHeart, 600);
 window.addEventListener("load", () => {
     setTimeout(() => {
         document.getElementById("loadingScreen").style.opacity = "0";
-        document.getElementById("loadingScreen").style.transition = "0.6s";
+        document.getElementById("loadingScreen").style.transition = "0.1s";
         setTimeout(() => {
             document.getElementById("loadingScreen").remove();
         }, 600);

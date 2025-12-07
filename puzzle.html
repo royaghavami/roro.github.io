@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Picture Puzzle</title>
+    <link rel="stylesheet" href="assets/styles-puzzle.css">
+</head>
+
+<body>
+
+    <a href="games.html" class="back-button">Back to Games ></a>
+
+    <section class="puzzle-section">
+        <h2>Puzzle 🧩</h2>
+
+        <input type="file" id="imageUpload" accept="image/*">
+
+        <div class="hud">
+            <div>⏱ Time: <span id="timer">0</span>s</div>
+            <div>⭐ Score: <span id="score">0</span></div>
+        </div>
+
+        <button id="previewBtn" class="preview-btn">👁 Peek (Costs 5 Points)</button>
+
+        <div id="previewContainer">
+            <img id="previewImage">
+        </div>
+
+        <div class="puzzle-container romantic-puzzle">
+            <div id="puzzle-board"></div>
+            <div id="pieces-container"></div>
+        </div>
+    </section>
+
+    <script src="assets/script-puzzle.js"></script>
+</body>
+
+</html>
