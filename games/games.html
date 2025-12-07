@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Games</title>
-    <link rel="stylesheet" href="assets/style.css"> <!-- your global styles -->
-    <link rel="stylesheet" href="assets/styles-games.css">
+    <link rel="stylesheet" href="../assets/style.css"> <!-- your global styles -->
+    <link rel="stylesheet" href="../assets/styles-games.css">
 </head>
 
 <body>
@@ -22,11 +22,11 @@
         </button>
     
         <ul class="nav-links" id="navLinks">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="songs.html">Songs</a></li>
-            <li><a href="movies.html">Movies</a></li>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="../songs.html">Songs</a></li>
+            <li><a href="../movies.html">Movies</a></li>
             <li><a href="games.html">Games</a></li>
-            <li><a href="books.html">Books</a></li>
+            <li><a href="../books.html">Books</a></li>
         </ul>
     </nav>
 
@@ -37,30 +37,38 @@
 
     <main class="games-container">
 
-        <div class="game-card" data-link="puzzle.html">
+        <div class="game-card" data-link="./puzzle.html">
             <div class="game-icon">🧩</div>
             <h3>Picture Puzzle</h3>
             <p>Solve the image puzzle with score & timer!</p>
             <button>Play</button>
         </div>
 
-        <div class="game-card disabled">
+        <div class="game-card" data-link="./memory.html">
             <div class="game-icon">🃏</div>
             <h3>Memory Cards</h3>
-            <p>Coming soon...</p>
-            <button disabled>Locked</button>
+            <p>Match all pairs to win the game!</p>
+            <button>Play</button>
         </div>
 
-        <div class="game-card disabled">
+        <div class="game-card" data-link="./aim.html">
             <div class="game-icon">🎯</div>
             <h3>Aim Challenge</h3>
             <p>Coming soon...</p>
+            <button>Play</button>
+        </div>
+        
+
+        <div class="game-card disabled">
+            <div class="game-icon">🎯</div>
+            <h3>Some Game</h3>
+            <p>Click the targets as fast as you can! Each hit gives 5 points.</p>
             <button disabled>Locked</button>
         </div>
 
     </main>
 
-    <script src="assets/script-games.js"></script>
+    <script src="../assets/games/script-games.js"></script>
 </body>
 
 </html>

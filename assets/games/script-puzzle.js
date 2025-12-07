@@ -8,9 +8,9 @@ const previewContainer = document.getElementById("previewContainer");
 const previewImage = document.getElementById("previewImage");
 
 /* ✅ SOUND EFFECTS */
-const correctSound = new Audio("./assets/songs/correct.mp3");
-const wrongSound = new Audio("./assets/songs/wrong.mp3");
-const winSound = new Audio("./assets/songs/win.mp3");
+const correctSound = new Audio("../assets/songs/correct.mp3");
+const wrongSound = new Audio("../assets/songs/wrong.mp3");
+const winSound = new Audio("../assets/songs/win.mp3");
 
 const rows = 4;
 const cols = 3;
