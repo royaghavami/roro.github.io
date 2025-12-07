@@ -3,10 +3,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!songLineContainer) return;
 
   const songs = [
-    { id: 3, title: "Mausoleum - RAFFERTY", file: "./assets/songs/everything-everywhere.mp3", cover: "./assets/images/audio3.jpeg", sender: "Roya", date: "2025-01-14" },
+    { id: 3, title: "Mausoleum - RAFFERTY", file: "./assets/songs/01 Rafferty - Mausoleum.mp3", cover: "./assets/images/audio3.jpeg", sender: "Roya", date: "2025-01-14" },
     { id: 1, title: "Everything EveryWhere – Vaultboy", file: "./assets/songs/everything-everywhere.mp3", cover: "./assets/images/audio1.jpeg", sender: "Roya", date: "2025-01-14" },
     { id: 2, title: "Blind – Alex Sampson", file: "./assets/songs/blind.mp3", cover: "./assets/images/audio2.jpeg", sender: "Roya", date: "2025-02-02" },
-    { id: 4, title: "Mi amor - Arta and Saaren", file: "./assets/songs/blind.mp3", cover: "./assets/images/audio4.jpeg", sender: "Roozbeh", date: "2025-02-02" },
+    { id: 4, title: "Mi amor - Arta and Saaren", file: "./assets/songs/Arta Saaren Mi Amor.mp3", cover: "./assets/images/audio4.jpeg", sender: "Roozbeh", date: "2025-02-02" },
   ];
 
   let currentAudio = null;
