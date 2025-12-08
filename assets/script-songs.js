@@ -3,10 +3,22 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!songLineContainer) return;
 
   const songs = [
-    { id: 3, title: "Mausoleum - RAFFERTY", file: "./assets/songs/01 Rafferty - Mausoleum.mp3", cover: "./assets/images/audio3.jpeg", sender: "Roya", date: "2025-01-14" },
-    { id: 1, title: "Everything EveryWhere – Vaultboy", file: "./assets/songs/everything-everywhere.mp3", cover: "./assets/images/audio1.jpeg", sender: "Roya", date: "2025-01-14" },
-    { id: 2, title: "Blind – Alex Sampson", file: "./assets/songs/blind.mp3", cover: "./assets/images/audio2.jpeg", sender: "Roya", date: "2025-02-02" },
-    { id: 4, title: "Mi amor - Arta and Saaren", file: "./assets/songs/Arta Saaren Mi Amor.mp3", cover: "./assets/images/audio4.jpeg", sender: "Roozbeh", date: "2025-02-02" },
+    { id: 1, title: "Mausoleum - RAFFERTY", file: "./assets/songs/01 Rafferty - Mausoleum.mp3", cover: "./assets/images/audio3.jpeg", sender: "Roya", date: "2025-09-07" },
+
+    { id: 2, title: "Everything EveryWhere – Vaultboy", file: "./assets/songs/everything-everywhere.mp3", cover: "./assets/images/audio1.jpeg", sender: "Roya", date: "2025-09-14" },
+    { id: 3, title: "Blind – Alex Sampson", file: "./assets/songs/blind.mp3", cover: "./assets/images/audio2.jpeg", sender: "Roya", date: "2025-09-14" },
+
+    { id: 4, title: "She's Got That - Chase McDaniel", file: "./assets/songs/she got that.mp3", cover: "./assets/images/audio6.jpg", sender: "Roya", date: "2025-09-24" },
+    { id: 5, title: "Project - Chase McDaniel", file: "./assets/songs/project.mp3", cover: "./assets/images/audio10.jpeg", sender: "Roya", date: "2025-09-24" },
+
+    { id: 6, title: "Mi amor - Arta and Saaren", file: "./assets/songs/Arta Saaren Mi Amor.mp3", cover: "./assets/images/audio4.jpeg", sender: "Roozbeh", date: "2025-09-26" },
+    { id: 7, title: "Bezan Baroon - Dekamond", file: "./assets/songs/Dekamond - Bezan Baroon.mp3", cover: "./assets/images/audio9.jpeg", sender: "Roya", date: "2025-09-26" },
+
+    { id: 8, title: "Die For You - Starset", file: "./assets/songs/04 Starset - Die For You.mp3", cover: "./assets/images/audio5.jpg", sender: "Roozbeh", date: "2025-10-01" },
+
+    { id: 9, title: "Lonely City - Mokita", file: "./assets/songs/Mokita - Lonely City.mp3", cover: "./assets/images/audio7.jpeg", sender: "Roozbeh", date: "2025-10-16" },
+
+    { id: 10, title: "Strangers - Roosevelt", file: "./assets/songs/Roosevelt - Strangers.mp3", cover: "./assets/images/audio8.jpeg", sender: "Roozbeh", date: "2025-11-14" },
   ];
 
   let currentAudio = null;
